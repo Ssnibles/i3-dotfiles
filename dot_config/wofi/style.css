@@ -1,46 +1,99 @@
+@define-color base            #232136;
+@define-color surface         #2a273f;
+@define-color overlay         #393552;
+
+@define-color muted           #6e6a86;
+@define-color subtle          #908caa;
+@define-color text            #e0def4;
+
+@define-color love            #eb6f92;
+@define-color gold            #f6c177;
+@define-color rose            #ea9a97;
+@define-color pine            #3e8fb0;
+@define-color foam            #9ccfd8;
+@define-color iris            #c4a7e7;
+
+@define-color highlightLow    #2a283e;
+@define-color highlightMed    #44415a;
+@define-color highlightHigh   #56526e;
+
 * {
     font-family: JetBrainsMono Nerd Font;
 }
 
 window {
-    background-color: #3B4252;
+    margin: 0px;
+    border: 5px solid transparent;
+    background-color: transparent;
+    border-radius: 8px;
 }
 
 #input {
-    margin: 5px;
-    border-radius: 0px;
+    padding: 4px;
+    margin: 4px;
+    padding-left: 20px;
     border: none;
-    background-color: #3B4252;
-    color: white;
+    color: @text;
+    font-weight: bold;
+    background-color: @base;
+    background: @base;
+   	outline: none;
+    border-radius: 15px;
+    margin: 10px;
+    margin-bottom: 2px;
+}
+#input:focus {
+    border: 0px solid @base;
+    margin-bottom: 0px;
 }
 
 #inner-box {
-    background-color: #383C4A;
+    margin: 4px;
+    border: 10px solid @base;
+    color: @text;
+    font-weight: bold;
+    background-color: @base;
+    border-radius: 15px;
 }
 
 #outer-box {
-    margin: 2px;
-    padding: 10px;
-    background-color: #383C4A;
+    margin: 0px;
+    border: none;
+    border-radius: 15px;
+    background-color: @base;
 }
 
 #scroll {
-    margin: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    /* background: rgb(255,255,255); */
 }
 
-#text {
-    padding: 4px;
-    color: white;
-}
-
-#entry:nth-child(even){
-    background-color: #404552;
-}
-
-#entry:selected {
-    background-color: #4C566A;
+#img:selected {
+    background-color: #89b4fa;
+    border-radius: 15px;
 }
 
 #text:selected {
-    background: transparent;
+    color: @text;
+    margin: 0px 0px;
+    border: none;
+    border-radius: 15px;
+    background-color: #89b4fa;
+}
+
+#entry {
+    margin: 0px 0px;
+    border: none;
+    border-radius: 15px;
+    background-color: transparent;
+}
+
+#entry:selected {
+    margin: 0px 0px;
+    border: none;
+    border-radius: 15px;
+    background-color: #89b4fa;
 }
