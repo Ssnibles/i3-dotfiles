@@ -15,8 +15,8 @@ More ways to install, and other info can be found here:
 https://www.chezmoi.io/install/
 
 ### 2. Backup your existing dotfiles:
-mkdir ~/dotfiles_backup\
-cp -r ~/.* ~/dotfiles_backup\
+<p>mkdir ~/dotfiles_backup<br>
+cp -r ~/.* ~/dotfiles_backup<p>
 
 OR to just backup your .config folder:
 cp -r ~/.config/* ~/dotfiles_backup
