@@ -6,6 +6,7 @@
   font-family: "JetBrainsMono Nerd Font";
   /* font-weight: bold; */
   font-size: 14px;
+  font-weight: bold;
   min-height: 0;
 }
 
@@ -64,7 +65,7 @@ tooltip {
 #backlight {
   background: @base;
   opacity: 0.8;
-  padding: 0px 10px;
+  padding: 0px 10px 0px 10px;
   margin: 0px 0px;
   margin-top: 10px;
   border: 2px solid @rose;
@@ -133,7 +134,8 @@ window#waybar.empty #window {
 }
 
 #clock {
-  color: @text;
+  color: @base;
+  /* font-size: 14px */
   background: @rose;
   border-radius: 8px;
   margin-left: 20px;
