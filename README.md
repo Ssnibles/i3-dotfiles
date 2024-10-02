@@ -22,8 +22,8 @@ OR to just backup your .config folder:
 cp -r ~/.config/* ~/dotfiles_backup
 
 ### 3. Initilize chezmoi with the repo:
-chezmoi init https://github.com/Ssnibles/dotfiles.git\
-This will clone the repo into the chezmoi source directory (usually found at: ~/.local/share/chezmoi)
+<p>chezmoi init https://github.com/Ssnibles/dotfiles.git<br>
+This will clone the repo into the chezmoi source directory (usually found at: ~/.local/share/chezmoi)<p>
 
 ### 4. Review the changes that chezmoi would make;
 chezmoi diff
