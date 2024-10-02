@@ -5,7 +5,7 @@
   border-radius: 0;
   font-family: "JetBrainsMono Nerd Font";
   /* font-weight: bold; */
-  font-size: 12px;
+  font-size: 14px;
   min-height: 0;
 }
 
@@ -63,7 +63,7 @@ tooltip {
 #memory,
 #backlight {
   background: @base;
-  opacity: 0.9;
+  opacity: 0.8;
   padding: 0px 10px;
   margin: 0px 0px;
   margin-top: 10px;
