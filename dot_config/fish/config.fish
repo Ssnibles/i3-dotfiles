@@ -1,6 +1,7 @@
 ## Source from conf.d before our fish config
 source ~/.config/fish/conf.d/done.fish
 
+fish_config theme choose "Rosé Pine Moon"
 
 ## Set values
 ## Run fastfetch as welcome message
