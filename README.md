@@ -15,15 +15,14 @@ More ways to install, and other info can be found here:
 https://www.chezmoi.io/install/
 
 ### 2. Backup your existing dotfiles:
-mkdir ~/dotfiles_backup
-cp -r ~/.* ~/dotfiles_backup
+mkdir ~/dotfiles_backup\
+cp -r ~/.* ~/dotfiles_backup\
 
 OR to just backup your .config folder:
 cp -r ~/.config/* ~/dotfiles_backup
 
 ### 3. Initilize chezmoi with the repo:
-chezmoi init https://github.com/Ssnibles/dotfiles.git
-
+chezmoi init https://github.com/Ssnibles/dotfiles.git\
 This will clone the repo into the chezmoi source directory (usually found at: ~/.local/share/chezmoi)
 
 ### 4. Review the changes that chezmoi would make;
