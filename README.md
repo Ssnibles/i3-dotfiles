@@ -18,8 +18,8 @@ https://www.chezmoi.io/install/
 <p>mkdir ~/dotfiles_backup<br>
 cp -r ~/.* ~/dotfiles_backup<p>
 
-OR to just backup your .config folder:
-cp -r ~/.config/* ~/dotfiles_backup
+<p>OR to just backup your .config folder:<br>
+cp -r ~/.config/* ~/dotfiles_backup<p>
 
 ### 3. Initilize chezmoi with the repo:
 <p>chezmoi init https://github.com/Ssnibles/dotfiles.git<br>
