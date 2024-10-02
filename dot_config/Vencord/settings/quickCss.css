@@ -7,6 +7,9 @@
 * @source https://github.com/rose-pine/discord
 * @updateUrl https://github.com/rose-pine/discord/blob/rose-pine-moon.theme.css
 */
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif !important;
+}
 
 .theme-dark {
 	--menu-item-default-hover-bg: #232136;

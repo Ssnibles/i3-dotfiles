@@ -6,7 +6,11 @@ fish_config theme choose "Rosé Pine Moon"
 ## Set values
 ## Run fastfetch as welcome message
 function fish_greeting
-    fastfetch
+    fastfetch --config ~/.config/fastfetch/main.jsonc
+end
+
+function fetch
+  fish_greeting
 end
 
 # Format man pages
