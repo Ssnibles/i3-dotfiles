@@ -47,7 +47,7 @@
         },
         {
             "key": "{$1}Player",
-            "keyColor": "38;5;255",
+            "keyColor": "38;5;85",
             "type": "player"
         }
     ]
