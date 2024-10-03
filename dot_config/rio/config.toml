@@ -47,4 +47,4 @@ features = []
 performance = "High"
 backend = "Automatic"
 disable-unfocused-render = false
-max-fps = 180
+max-fps = 165

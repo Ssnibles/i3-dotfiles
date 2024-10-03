@@ -6,7 +6,7 @@ fish_config theme choose "Rosé Pine Moon"
 
 # Run fastfetch as welcome message
 function fish_greeting
-    pokeget random --hide-name > ~/.config/pokemon_logo.txt # Output pokeget to file to be displayed as fastfetch logo
+    pokeget abra --hide-name > ~/.config/pokemon_logo.txt # Output pokeget to file to be displayed as fastfetch logo
     fastfetch --config ~/.config/fastfetch/main.jsonc # Run custom fastfetch config
     cp /dev/null ~/.config/pokemon_logo.txt # Clear the pokemon_logo file
 end
