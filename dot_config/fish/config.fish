@@ -1,18 +1,18 @@
-## Source from conf.d before our fish config
+# Source from conf.d before our fish config
 source ~/.config/fish/conf.d/done.fish
 
+# Add custom theme
 fish_config theme choose "Rosé Pine Moon"
 
-## Set values
-## Run fastfetch as welcome message
+# Run fastfetch as welcome message
 function fish_greeting
-    pokeget random --hide-name > ~/.config/pokemon_logo.txt
-    fastfetch --config ~/.config/fastfetch/main.jsonc
-    cp /dev/null ~/.config/pokemon_logo.txt
+    pokeget random --hide-name > ~/.config/pokemon_logo.txt # Output pokeget to file to be displayed as fastfetch logo
+    fastfetch --config ~/.config/fastfetch/main.jsonc # Run custom fastfetch config
+    cp /dev/null ~/.config/pokemon_logo.txt # Clear the pokemon_logo file
 end
 
 function fetch
-  fish_greeting
+  fish_greeting # Run fish_greeting function when using fetch
 end
 
 # Format man pages
