@@ -46,9 +46,23 @@
             "type": "memory"
         },
         {
+          "type": "break"
+        },
+        {
             "key": "{$1}Player",
             "keyColor": "38;5;85",
             "type": "player"
+        },
+        {
+          "key": "{$1}Audio",
+          "keyColor": "38;5;5",
+          "type": "Sound"
         }
+        // {
+        //   "key": " ",
+        //   "type": "command",
+        //   "shell": "/bin/sh",
+        //   "text": "echo hi"
+        // }
     ]
 }
