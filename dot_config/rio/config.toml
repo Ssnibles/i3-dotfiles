@@ -1,0 +1,50 @@
+hide-mouse-cursor-when-typing = false
+
+padding-x = 20
+padding-y = [20, 20]
+
+confirm-before-quit = false
+
+# Sets environment variables
+env-vars = []
+
+[colors]
+background = '#232136'
+foreground = '#e0def4'
+cursor = '#ea9a97'
+tabs = '#e0def4'
+tabs-active = '#3e8fb0'
+green = '#c4a7e7'
+red = '#ED203D'
+blue = '#12B5E5'
+yellow = '#FCBA28'
+
+[cursor]
+# Cursor shape - options include 'block', 'underline' and 'beam'
+shape = 'block'
+blinking = true # Cursors blinking interval in ms - only goes from 350ms to 1200ms
+blinking-interval = 700
+
+# This property enables log level filter and file. The default level is "OFF" and the logs are not logged to a file as default.
+[developer]
+log-level = "OFF"
+enable-log-file = false
+
+# Whenever the 'OpenConfigEditor' key bind is triggered, the selected editor is used
+[editor]
+program = "nvim"
+args = []
+
+[fonts]
+size = 14
+family = "JetBrainsMono Nerd Font"
+features = []
+
+# [fonts.emoji]
+# family = ""
+
+[renderer]
+performance = "High"
+backend = "Automatic"
+disable-unfocused-render = false
+max-fps = 180
