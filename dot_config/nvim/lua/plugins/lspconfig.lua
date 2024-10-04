@@ -8,6 +8,10 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
   opts = {
+    sort = {
+      frecency = true,
+      user_items = true,
+    },
     ui = {
       icons = {
         package_installed = "✓",

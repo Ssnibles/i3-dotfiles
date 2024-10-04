@@ -4,18 +4,12 @@ return {
   lazy = false,
   dependencies = {
     "kkharji/sqlite.lua",
-    "stevearc/dressing.nvim", -- optional, for better UI
+    "stevearc/dressing.nvim", -- Optional: Enhances UI appearance
   },
   opts = {
     extensions = {
       which_key = { auto_register = true },
       lazy_nvim = { auto_register = true },
-    },
-    sort = {
-      -- sort most frequently used items to the top
-      frecency = true,
-      -- sort user-defined items before built-in items
-      user_items = true,
     },
     include_builtin = true,
     include_legendary_cmds = true,
