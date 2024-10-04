@@ -143,6 +143,10 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
+alias emacs="emacs -nw $argv"
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 fish_add_path /home/josh/.spicetify
+
+fish_add_path $HOME/.emacs.d/bin/
