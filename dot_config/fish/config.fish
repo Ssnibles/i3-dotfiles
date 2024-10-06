@@ -11,8 +11,57 @@ function fish_greeting
     cp /dev/null ~/.config/pokemon_logo.txt # Clear the pokemon_logo file
 end
 
+# fzf function. Can work with programs like nvim to fuzzy find and append the search to a command
+function fzf_open
+    set selected_file (fzf)
+    if test -n "$selected_file"
+        commandline -i "$selected_file"
+    end
+    commandline -f repaint
+end
+
 function fetch
   fish_greeting # Run fish_greeting function when using fetch
+end
+
+# function fzf_select
+#   commandline -i '**'
+#   commandline -f execute
+# end
+
+# File search and edit
+function fe
+    set file (fzf --query="$argv[1]" --select-1 --exit-0)
+    if test -n "$file"
+        nvim "$file"
+    end
+end
+
+# Directory search and cd
+function fcd
+    set dir (fd --type d | fzf +m)
+    if test -n "$dir"
+        cd "$dir"
+    end
+end
+
+# Declare fish keybinds here
+function fish_user_key_bindings
+    bind \ct 'fzf_open'
+    # bind -k tab 'fzf_select'
+end
+
+# Search command history
+function fh
+    history | fzf +s --tac | read -l result; and commandline "$result"
+end
+
+# Kill process
+function fkill
+    set pid (ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    if test -n "$pid"
+        echo $pid | xargs kill -9
+    end
 end
 
 # Format man pages
@@ -143,10 +192,19 @@ alias jctl="journalctl -p 3 -xb"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
+# Open file in emacs cli
 alias emacs="emacs -nw $argv"
+
+# Usefull scripts
+alias clean="~/repos/scripts/clean.sh"
+alias re-add="~/repos/scripts/chezmoi_add.sh"
+alias re-shell="source ~/.config/fish/config.fish"
+
+# bind \cl 'clear; commandline -f repaint'
+# bind \cx 'echo "Hello, Fish!"'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# PATHs
 fish_add_path /home/josh/.spicetify
-
 fish_add_path $HOME/.emacs.d/bin/
