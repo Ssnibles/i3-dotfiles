@@ -5,7 +5,7 @@ return {
 		{ "catppuccin/nvim", name = "catppuccin", lazy = false, priority = 1000 },
 		{ "rebelot/kanagawa.nvim", name = "kanagawa", lazy = false, priority = 1000 },
 		{ "sainnhe/sonokai", name = "sonokai", lazy = false, priority = 1000 },
-		{ "rose-pine/neovim", name = "rose-pine", opts = { variant = "dawn" }, lazy = false, priority = 1000 },
+		{ "rose-pine/neovim", name = "rose-pine", opts = { variant = "moon" }, lazy = false, priority = 1000 },
 	},
 	config = function()
 		require("themery").setup({
