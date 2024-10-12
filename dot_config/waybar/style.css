@@ -51,6 +51,14 @@ tooltip {
   border-radius: 8px;
 }
 
+#workspaces button.special {
+  color: @highlightMed; /* Greyed out color */
+}
+
+#workspaces button.special.active {
+  color: @text; /* Bright color when active */
+}
+
 #custom-power_profile,
 #window,
 #clock,
