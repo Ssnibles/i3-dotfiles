@@ -46,4 +46,9 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<C-x>", '"_dd:echo "Line deleted"<CR>', { noremap = true, silent = true })
 vim.keymap.set("i", "<C-x>", '<Esc>"_dd:echo "Line deleted"<CR>i', { noremap = true, silent = true })
 
+-- Keybind to open themery theme switcher
+--
+-- Just leave this here instead of configuring in the plugin file
+-- For some reason themes are not saved between sessions when adding
+-- the keybind to the plugin file, not sure why
 vim.keymap.set("n", "<leader>th", ":Themery<CR>", { desc = "Themery" }) -- Themery

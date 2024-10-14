@@ -7,7 +7,7 @@
   "gtk-layer-shell": true,
   "height": 40,
   "margin-bottom": 6,
-  // "spacing": 4,
+  "spacing": 4,
   "modules-left": ["clock", "tray", "hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": [

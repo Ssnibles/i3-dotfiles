@@ -59,7 +59,6 @@ return {
 			"tsserver",
 			"pyright",
 			"tailwindcss",
-			-- Remove "ast_grep", "black", "html-lsp", "css-lsp" as they are not standard LSP servers
 		}
 		for _, lsp in ipairs(servers) do
 			lspconfig[lsp].setup({
