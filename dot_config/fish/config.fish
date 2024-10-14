@@ -22,3 +22,4 @@ fish_add_path /home/josh/.spicetify
 fish_add_path $HOME/.emacs.d/bin/
 
 thefuck --alias | source
+starship init fish | source

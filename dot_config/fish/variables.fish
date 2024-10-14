@@ -15,3 +15,4 @@ set -gx NNN_BMS "d:~/Documents;u:/home/user/Uploads;D:~/Downloads/"
 set -gx NNN_FIFO "/tmp/nnn.fifo"
 set -gx NNN_OPENER "nvim"
 
+set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
