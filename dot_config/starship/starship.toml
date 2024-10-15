@@ -1,6 +1,6 @@
 format = '''
 [┌───────────────────>](bold green)
-[│](bold green)$directory$rust$package
+[│](bold green)$hostname$directory$rust$package
 [└─>](bold green) '''
 
 # scan_timeout = 10
