@@ -6,6 +6,9 @@ cd ~/.local/share/chezmoi/ || { echo "Failed to change directory"; exit 1; }
 
 dirs=(
   ~/.config/hypr/
+  ~/.config/nvim/
+  ~/.config/foot/
+  ~/.config/yazi/
   ~/Documents/scripts/
 )
 
