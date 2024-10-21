@@ -64,3 +64,14 @@ ui = {
     lazy = "💤 ",
   },
 }
+
+-- if vim.g.vscode then
+--   -- VSCode Neovim
+-- require "vsc-binds"
+-- -- require "binds"
+-- require "settings"
+-- require "autocommands"
+-- require "vscode"
+-- else
+--   -- Ordinary Neovim
+-- end
