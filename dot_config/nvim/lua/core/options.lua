@@ -23,7 +23,7 @@ if global.neovide then
   global.neovide_padding_left = 10
   global.neovide_padding_right = 10
   global.neovide_floating_shadow = false
-  global.neovide_scale_factor = 1.0
+  global.neovide_scale_factor = 0.85
 
   -- Animations
   global.neovide_scroll_animation_length = 0.3

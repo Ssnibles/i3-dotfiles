@@ -1,56 +1,72 @@
 return {
   "Bekaboo/dropbar.nvim",
-  event = { "BufNewFile", "BufRead" },
   priority = 1000,
   lazy = false,
-  dependencies = {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    "nvim-tree/nvim-web-devicons", -- for file icons
-  },
   config = function()
-    require("dropbar").setup {
-      -- General settings
-      color = {
-        bg = "#1f2335", -- Background color of the dropbar
-        fg = "#c0caf5", -- Foreground color of the dropbar
-      },
+    local ok, dropbar = pcall(require, "dropbar")
+    if not ok then
+      vim.notify("dropbar.nvim not found", vim.log.levels.WARN)
+      return
+    end
 
-      -- Keymaps
-      keymaps = {
-        toggle = "<leader>d", -- Toggle dropbar visibility
-        jump = "<CR>", -- Jump to the selected item
+    dropbar.setup {
+      bar = {
+        enable = true,
+        update_debounce = 100,
       },
-
-      -- Sources configuration
-      sources = {
-        path = {
-          enabled = true,
-          relative = false, -- Show absolute path
-        },
-        lsp = {
-          enabled = true,
-          blacklist = {}, -- List of LSP servers to ignore
-        },
-        treesitter = {
-          enabled = true,
+      icon = {
+        enable = true,
+        kinds = {
+          file_icon = true,
+          -- You can customize the symbols here if needed
         },
       },
-
-      -- Appearance
-      max_width = 0.6, -- Maximum width of the dropbar (60% of window width)
-      truncate = {
-        left = true, -- Truncate long paths from the left
-        middle = false, -- Don't truncate in the middle
+      bar = {
+        sources = function(buf, _)
+          local sources = require "dropbar.sources"
+          if vim.bo[buf].ft == "markdown" then
+            return { sources.path, sources.markdown }
+          elseif vim.bo[buf].buftype == "terminal" then
+            return { sources.terminal }
+          else
+            return {
+              sources.path,
+              sources.treesitter,
+              sources.lsp,
+            }
+          end
+        end,
+        padding = { left = 1, right = 1 },
+        pick = {
+          pivots = "abcdefghijklmnopqrstuvwxyz",
+        },
       },
-
-      -- Performance
-      update_interval = 100, -- Update interval in milliseconds
+      menu = {
+        preview = true,
+        quick_navigation = true,
+        entry = {
+          padding = { left = 1, right = 1 },
+        },
+        scrollbar = {
+          enable = true,
+          background = true,
+        },
+        keymaps = {
+          -- Add custom keymaps here if needed
+        },
+      },
     }
+
+    -- Custom keymaps
+    vim.keymap.set("n", "<leader>db", function()
+      if dropbar.pick then
+        dropbar.pick()
+      else
+        vim.notify("dropbar.pick not available", vim.log.levels.WARN)
+      end
+    end, { noremap = true, silent = true, desc = "Dropbar pick" })
   end,
-  -- Optional: Add commands to load the plugin
-  cmd = {
-    "DropbarToggle",
-    "DropbarShow",
-    "DropbarHide",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons", -- for file icons
   },
 }

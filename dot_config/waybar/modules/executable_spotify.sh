@@ -1,19 +1,42 @@
-#!/bin/sh
+#!/bin/bash
 
-class=$(playerctl metadata --player=spotify --format '{{lc(status)}}')
-icon=""
+# Define constants
+PLAYER="spotify"
+MAX_LENGTH=40
+PLAY_ICON=""
+PAUSE_ICON=""
 
-if [[ $class == "playing" ]]; then
-  info=$(playerctl metadata --player=spotify --format '{{artist}} - {{title}}')
-  if [[ ${#info} > 40 ]]; then
-    info=$(echo $info | cut -c1-40)"..."
-  fi
-  text=$info" "$icon
-elif [[ $class == "paused" ]]; then
-  text=$icon
-elif [[ $class == "stopped" ]]; then
-  text=""
-fi
+# Function to truncate text
+truncate_text() {
+    local text="$1"
+    if [[ ${#text} -gt $MAX_LENGTH ]]; then
+        echo "${text:0:$MAX_LENGTH}..."
+    else
+        echo "$text"
+    fi
+}
 
-echo -e "{\"text\":\""$text"\", \"class\":\""$class"\"}"
+# Get player status
+status=$(playerctl metadata --player=$PLAYER --format '{{lc(status)}}')
 
+# Initialize variables
+text=""
+icon=""
+
+case $status in
+    "playing")
+        icon=$PLAY_ICON
+        info=$(playerctl metadata --player=$PLAYER --format '{{artist}} - {{title}}')
+        text="$(truncate_text "$info") $icon"
+        ;;
+    "paused")
+        icon=$PAUSE_ICON
+        text=$icon
+        ;;
+    "stopped"|*)
+        # No text or icon for stopped state or any other state
+        ;;
+esac
+
+# Output JSON
+echo -e "{\"text\":\"$text\", \"class\":\"$status\"}"

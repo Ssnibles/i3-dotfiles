@@ -1,52 +1,45 @@
 return {
   "ziontee113/icon-picker.nvim",
   dependencies = {
-    "stevearc/dressing.nvim", -- For better UI
-    "nvim-telescope/telescope.nvim", -- For improved icon browsing
+    "stevearc/dressing.nvim",
+    "nvim-telescope/telescope.nvim",
   },
   cmd = { "IconPickerNormal", "IconPickerYank", "IconPickerInsert" },
   keys = {
     { "<Leader>i", "<cmd>IconPickerNormal<cr>", desc = "Icon Picker (Normal Mode)" },
     { "<Leader>iy", "<cmd>IconPickerYank<cr>", desc = "Icon Picker (Yank)" },
     { "<C-i>", "<cmd>IconPickerInsert<cr>", desc = "Icon Picker (Insert Mode)" },
-    { "<Leader>ie", "<cmd>IconPickerInsert emoji<cr>", desc = "Emoji Picker" },
-    { "<Leader>in", "<cmd>IconPickerInsert nerd_font<cr>", desc = "Nerd Font Picker" },
+    { "<Leader>ie", "<cmd>IconPickerNormal emoji<cr>", desc = "Emoji Picker" },
+    { "<Leader>in", "<cmd>IconPickerNormal nerd_font<cr>", desc = "Nerd Font Picker" },
   },
   config = function()
     require("icon-picker").setup {
       disable_legacy_commands = true,
 
-      -- Customize the appearance of the icon picker window
       ui = {
         border = "rounded",
-        width = 0.5, -- 50% of screen width
-        height = 0.7, -- 70% of screen height
-        row = 0.5, -- Centered vertically
-        col = 0.5, -- Centered horizontally
+        width = 0.5,
+        height = 0.7,
+        row = 0.5,
+        col = 0.5,
       },
 
-      -- Customize icons shown by default
       icons = {
-        -- Add or remove icon sets as needed
         "emoji",
         "nerd_font",
         "codicons",
         "devicons",
       },
 
-      -- Customize the prompt
       prompt = "Pick an icon: ",
 
-      -- Customize the search method
-      search_method = "fzy", -- or "fzf" if you prefer
+      search_method = "fzy",
 
-      -- Customize the insert behavior
       insert = {
-        after_cursor = true, -- Insert after cursor position
-        use_empty_line = false, -- Don't use empty line for insertion
+        after_cursor = true,
+        use_empty_line = false,
       },
 
-      -- Customize the mappings within the icon picker
       mappings = {
         ["<C-n>"] = "move_cursor_down",
         ["<C-p>"] = "move_cursor_up",
@@ -56,12 +49,27 @@ return {
       },
     }
 
+    -- Custom function to insert icon and stay in normal mode
+    local function insert_icon_normal_mode(icon)
+      vim.api.nvim_put({ icon }, "", true, true)
+    end
+
+    -- Override the default insert behavior
+    local icon_picker = require "icon-picker"
+    local original_pick = icon_picker.pick
+
+    icon_picker.pick = function(opts)
+      opts = opts or {}
+      opts.callback = insert_icon_normal_mode
+      original_pick(opts)
+    end
+
     -- Additional custom keymaps
     local opts = { noremap = true, silent = true }
     vim.keymap.set("n", "<Leader>if", function()
-      require("icon-picker").pick_favicon {
+      icon_picker.pick_favicon {
         callback = function(icon)
-          -- Do something with the selected favicon
+          insert_icon_normal_mode(icon)
           print("Selected favicon: " .. icon)
         end,
       }

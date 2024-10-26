@@ -10,13 +10,15 @@
       "hyprland/window"
     ],
     "modules-right": [
-      "network", 
-      "pulseaudio", 
-      "battery", 
+      "network",
+      "pulseaudio",
+      "battery",
       "clock"
     ],
 
     "hyprland/workspaces": {
+      "show-special": true,
+      "special-visible-only": true,
       "disable-scroll": true,
       "all-outputs": true,
       "format": "{name}"
