@@ -1,321 +1,312 @@
-# Don't print a new line at the start of the prompt
-add_newline = false
-# Pipes ╰─ ╭─
-# Powerline symbols                                    
-# Wedges 🭧🭒 🭣🭧🭓
-# Random noise 🬖🬥🬔🬗
+# ~/.config/starship.toml
 
-# format = """
-# $cmd_duration$username$hostname $directory $git_branch
-# $character
-# """
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+continuation_prompt = "[▸▹ ](dimmed white)"
+
+# Add the below two above $sudo\ to add a seperator line and line break
+# $fill
+# $line_break
 format = """
-$cmd_duration$directory $git_branch
-$character
+$os\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$line_break\
+$character\
 """
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[• ](bold fg:green) "
-error_symbol = "[• 󰅙](bold fg:red) "
+right_format = """
+$singularity\
+$kubernetes\
+$vcsh\
+$fossil_branch\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$crystal\
+$custom\
+$cmd_duration\
+$status\
+$battery\
+$time\
+"""
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+palette = "catppuccin_mocha"
 
-[git_branch]
-style = "bg: green"
-symbol = "󰘬"
-truncation_length = 4
-truncation_symbol = ""
-format = "• [](bold fg:green)[$symbol $branch(:$remote_branch)](fg:black bg:green)[ ](bold fg:green)"
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
 
-[git_commit]
-commit_hash_length = 4
-tag_symbol = " "
+# [fill]
+# symbol = "-"
+# style = "bold overlay0"
 
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
+[sudo]
+format = "[$symbol]($style)"
+style = "bold italic bright-purple"
+symbol = "🦸"
+disabled = false
 
-[git_status]
-conflicted = " 🏳 "
-ahead = " 🏎💨 "
-behind = " 😰 "
-diverged = " 😵 "
-untracked = " 🤷 ‍"
-stashed = " 📦 "
-modified = " 📝 "
-staged = '[++\($count\)](green)'
-renamed = " ✍️ "
-deleted = " 🗑 "
+[os]
+format = "[$symbol]($style)"
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+Linux = "🐧"
+Windows = "🪟"
+Macos = "🍎"
+Ubuntu = "⭕"
+Arch = "🍫"
+CentOS = "💵"
+Debian = "🌀"
+Fedora = "👒"
+Alpine = "🏔️"
+SUSE = "🦎"
+Redhat = "🎩"
+
+[username]
+style_user = "bold italic blue"
+style_root = "bold italic red"
+format = "[$user]($style) "
+show_always = true
 
 [hostname]
 ssh_only = false
-format =  "[•$hostname](bg:cyan bold fg:black)[](bold fg:cyan )"
-trim_at = ".companyname.com"
+style = "bold italic yellow"
+format = "on [$hostname]($style) "
 disabled = false
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold italic cyan"
+format = "in [$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = "🌿 "
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+style = "bold italic purple"
+truncation_symbol = "..."
+truncation_length = 11
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold italic green"
+
+# Languages and Dev Tools
+[deno]
+format = "🦕 [deno](italic) [∫ $version](green bold) │"
+version_format = "${raw}"
+
+[lua]
+format = "🌙 [lua](italic) [${symbol}${version}]($style) │"
+version_format = "${raw}"
+symbol = " "
+style = "bold bright-yellow"
+
+[nodejs]
+format = "🟢 [node](italic) [◫ ($version)](bold bright-green) │"
+version_format = "${raw}"
+detect_files = ["package-lock.json", "yarn.lock"]
+detect_folders = ["node_modules"]
+detect_extensions = []
+
+[python]
+format = "🐍 [py](italic) [${symbol}${version}]($style) │"
+symbol = "[⌉](bold bright-blue)⌊ "
+version_format = "${raw}"
+style = "bold bright-yellow"
+
+[ruby]
+format = "💎 [rb](italic) [${symbol}${version}]($style) │"
+symbol = " "
+version_format = "${raw}"
+style = "bold red"
+
+[rust]
+format = "🦀 [rs](italic) [$symbol$version]($style) │"
+symbol = " "
+version_format = "${raw}"
+style = "bold red"
+
+[package]
+format = "📦 [pkg](italic dimmed) [$symbol$version]($style) │"
+version_format = "${raw}"
+symbol = " "
+style = "dimmed yellow italic bold"
+
+[swift]
+format = "🍎 [sw](italic) [${symbol}${version}]($style) │"
+symbol = " "
+style = "bold bright-red"
+version_format = "${raw}"
+
+[aws]
+disabled = true
+format = "☁️ [aws](italic) [$symbol $profile $region]($style) │"
+style = "bold blue"
+symbol = " "
+
+[buf]
+symbol = "🐃 "
+format = "[buf](italic) [$symbol $version $buf_version]($style) │"
+
+[c]
+symbol = "🅒 "
+format = "[$symbol($version(-$name))]($style) │"
+
+[conda]
+symbol = "🐍 "
+format = "conda [$symbol$environment]($style) │"
+
+[dart]
+symbol = "🎯 "
+format = "dart [$symbol($version )]($style) │"
+
+[docker_context]
+symbol = "🐳 "
+format = "docker [$symbol$context]($style) │"
+
+[elixir]
+symbol = "💧 "
+format = "exs [$symbol $version OTP $otp_version ]($style) │"
+
+[elm]
+symbol = "🌳 "
+format = "elm [$symbol($version )]($style) │"
+
+[golang]
+symbol = "🐹 "
+format = "go [$symbol($version )]($style) │"
+
+[haskell]
+symbol = "λ "
+format = "hs [$symbol($version )]($style) │"
+
+[java]
+symbol = "☕ "
+format = "java [${symbol}(${version} )]($style) │"
+
+[julia]
+symbol = "ஃ "
+format = "jl [$symbol($version )]($style) │"
+
+[memory_usage]
+symbol = "🧠 "
+format = "mem [${ram}( ${swap})]($style) │"
+
+[nim]
+symbol = "👑 "
+format = "nim [$symbol($version )]($style) │"
+
+[nix_shell]
+style = 'bold italic dimmed blue'
+symbol = '❄️ '
+format = '[$symbol nix⎪$state⎪]($style) [$name](italic dimmed white) │'
+impure_msg = '[⌽](bold dimmed red)'
+pure_msg = '[⌾](bold dimmed green)'
+unknown_msg = '[◌](bold dimmed yellow)'
+
+[spack]
+symbol = "🎒 "
+format = "spack [$symbol$environment]($style) │"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bold white"
+format = "⏲️ [$time]($style)"
+
+[cmd_duration]
+format = "⏱️ took [$duration ](bold yellow)"
 
 [line_break]
 disabled = false
 
-[memory_usage]
-disabled = true
-threshold = -1
-symbol = " "
-style = "bold dimmed green"
-
-[time]
-disabled = true
-format = '🕙[\[ $time \]]($style) '
-time_format = "%T"
-
-[username]
-style_user = "bold bg:cyan fg:black"
-style_root = "red bold"
-format = "[](bold fg:cyan)[$user]($style)"
-disabled = false
-show_always = true
-
-[directory]
-home_symbol = "  "
-read_only = "  "
-style = "bg:green fg:black"
-truncation_length = 6
-truncation_symbol = "••/"
-format = '[](bold fg:green)[$path ]($style)[](bold fg:green)'
-
-
-[directory.substitutions]
-"Desktop" = "  "
-"Documents" = "  "
-"Downloads" = "  "
-"Music" = " 󰎈 "
-"Pictures" = "  "
-"Videos" = "  "
-
-[cmd_duration]
-min_time = 0
-format = '[](bold fg:yellow)[ $duration](bold bg:yellow fg:black)[](bold fg:yellow) •• '# format = '''
-# [┌───────────────────>](bold green)
-# [│](bold green)$hostname$directory$rust$package
-# [└─>](bold green) '''
-
-# scan_timeout = 10
-## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
-## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
-## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
-## CROSS-SHELL PROMPT
-## The minimal, blazing-fast, and infinitely customizable prompt for any shell!
-
-# format = """
-# $hostname\
-# $directory\
-#
-# $localip\
-# $shlvl\
-# $singularity\
-# $kubernetes\
-# $vcsh\
-# $hg_branch\
-# $docker_context\
-# $package\
-# $custom\
-#
-# $sudo\
-#
-# $fill\
-# $git_branch\
-# $git_status\
-# $git_commit\
-# $cmd_duration\
-# $jobs\
-# $battery\
-# $time\
-# $status\
-# $os\
-# $container\
-# $shell\
-# $line_break\
-# $character"""
-#
-#
-# # Disable the blank line at the start of the prompt
-# add_newline = true
-#
-#
-# # Second param
-# [hostname]
-# ssh_only = true
-# format = "[](fg:#252525 bg:none)[█](fg:#E8E3E3 bg:#252525)[$ssh_symbol$hostname](bold bg:#E8E3E3)[](fg:#E8E3E3 bg:none) "
-# disabled = false
-#
-# # Third param
-# [directory]
-# format = "[](fg:#252525 bg:none)[$path]($style)[█](fg:#232526 bg:#232526)[](fg:#6791C9 bg:#252525)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none)"
-# style = "fg:#E8E3E3 bg:#252525 bold"
-# truncation_length = 3
-# truncate_to_repo=false
-# read_only = " "
-#
-# ## SECOND LINE/ROW: Prompt
-# # Prompt: param 2 └─
-# [character]
-# success_symbol = "[ ](#6791C9 bold)"
-# error_symbol = "[ ](#B66467 bold)"
-#
-# [line_break]
-# disabled = false
-#
-# [fill]
-# symbol = ' '
-# style = 'bold green'
-#
-# [cmd_duration]
-# min_time = 1
-# format = "[](fg:#252525 bg:none)[$duration]($style)[](fg:#252525 bg:#252525)[](fg:#C397D8 bg:#252525)[󱑂 ](fg:#252525 bg:#C397D8)[](fg:#C397D8 bg:none)"
-# disabled = false
-# style = "fg:#E8E3E3 bg:#252525 bold"
-#
-#
-# [git_branch]
-# format = "[](fg:#252525 bg:none)[$branch]($style)[](fg:#252525 bg:#252525)[](fg:#81C19B bg:#252525)[](fg:#252525 bg:#81C19B)[](fg:#81C19B bg:none) "
-# style = "fg:#E8E3E3 bg:#252525"
-# symbol = " "
-#
-# [git_status]
-# format="[](fg:#252525 bg:none)[$all_status$ahead_behind]($style)[](fg:#252525 bg:#252525)[](fg:#6791C9 bg:#252525)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none) "
-# style = "fg:#E8E3E3 bg:#252525"
-# conflicted = "="
-# ahead =	"⇡${count}"
-# behind = "⇣${count}"
-# diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-# up_to_date = " 󰄸 "
-# untracked = "?${count}"
-# stashed = ""
-# modified = "!${count}"
-# staged = "+${count}"
-# renamed = "»${count}"
-# deleted = " ${count}"
-#
-# [git_commit]
-# format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
-# style = "green"
-#
-# [git_state]
-# rebase = "REBASING"
-# merge =	"MERGING"
-# revert = "REVERTING"
-# cherry_pick = "CHERRY-PICKING"
-# bisect = "BISECTING"
-# am = "AM"
-# am_or_rebase = "AM/REBASE"
-# style =	"yellow"
-# format = '\([$state( $progress_current/$progress_total)]($style)\) '
-#
-# # # SYMBOLS
-#
-# [aws]
-# symbol = "  "
-#
-# [conda]
-# symbol = " "
-#
-# [dart]
-# symbol = " "
-#
-# # [directory]
-#
-# [docker_context]
-# symbol = " "
-# format = "via [$symbol$context]($style) "
-# style = "blue bold"
-# only_with_files = true
-# detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
-# detect_folders = []
-# disabled = false
-#
-# [elixir]
-# symbol = " "
-#
-# [elm]
-# symbol = " "
-#
-# [golang]
-# symbol = " "
-#
-# [hg_branch]
-# symbol = " "
-#
-# [java]
-# symbol = " "
-#
-# [julia]
-# symbol = " "
-#
-# [haskell]
-# symbol = "λ "
-#
-# [memory_usage]
-# symbol = " "
-#
-# [nim]
-# symbol = " "
-#
-# [nix_shell]
-# symbol = " "
-#
-# [package]
-# symbol = " "
-#
-# [perl]
-# symbol = " "
-#
-# [php]
-# symbol = " "
-#
-# [python]
-# symbol = " "
-# #pyenv_version_name = true
-# format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
-# style = "bold yellow"
-# pyenv_prefix = "venv "
-# python_binary = ["./venv/bin/python", "python", "python3", "python2"]
-# detect_extensions = ["py"]
-# version_format = "v${raw}"
-#
-# [ruby]
-# symbol = " "
-#
-# [rust]
-# symbol = " "
-#
-# [scala]
-# symbol = " "
-#
-# [shlvl]
-# symbol = " "
-#
-# [swift]
-# symbol = "ﯣ "
-#
-# [nodejs]
-# format = "via [ Node.js $version](bold green) "
-# detect_files = ["package.json", ".node-version"]
-# detect_folders = ["node_modules"]
-#
-# # Other languages configurations:
-# c.disabled = true
-# cmake.disabled = true
-# haskell.disabled = true
-# python.disabled = true
-# ruby.disabled = true
-# rust.disabled = true
-# perl.disabled = true
-# package.disabled = true
-# lua.disabled = true
-# nodejs.disabled = true
-# java.disabled = true
-# golang.disabled = true
-# add_newline = false
-#
+[character]
+format = "$symbol"
+success_symbol = "[> ](bold green)"
+error_symbol = "[> ](bold red)"
