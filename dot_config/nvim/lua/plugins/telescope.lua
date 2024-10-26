@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.6",
+  tag = "0.1.8",
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -61,7 +61,7 @@ return {
   opts = {
     defaults = {
       prompt_prefix = " ",
-      selection_caret = " ",
+      selection_caret = "▶ ",
       path_display = { "truncate" },
       file_ignore_patterns = { ".git/", "node_modules/", "%.lock" },
       vimgrep_arguments = {
@@ -83,7 +83,7 @@ return {
         horizontal = {
           prompt_position = "top",
           preview_width = 0.5,
-          results_width = 0.5,
+          results_width = 0.6,
         },
         width = 0.87,
         height = 0.80,

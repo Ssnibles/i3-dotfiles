@@ -23,3 +23,5 @@ fish_add_path $HOME/.emacs.d/bin/
 
 thefuck --alias | source
 starship init fish | source
+
+fish_add_path /home/josh/.millennium/ext/bin

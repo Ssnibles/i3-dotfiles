@@ -24,7 +24,7 @@ return {
         },
         center = {
           {
-            icon = " ",
+            icon = " ",
             icon_hl = "Title",
             desc = "Find File",
             desc_hl = "String",
@@ -36,14 +36,14 @@ return {
             end,
           },
           {
-            icon = " ",
+            icon = "󰥔 ",
             desc = "Recent Files",
             key = "r",
             keymap = "SPC f r",
             action = "Telescope oldfiles",
           },
           {
-            icon = " ",
+            icon = " ",
             desc = "Find Word",
             key = "w",
             keymap = "SPC f w",
@@ -52,7 +52,7 @@ return {
             end,
           },
           {
-            icon = " ",
+            icon = " ",
             desc = "Bookmarks",
             key = "b",
             keymap = "SPC f b",

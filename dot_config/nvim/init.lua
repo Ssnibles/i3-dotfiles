@@ -12,7 +12,6 @@ local core_modules = {
   "core.autocmds",
   "core.keymaps",
 }
-
 for _, module in ipairs(core_modules) do
   local ok, err = pcall(require, module)
   if not ok then
@@ -51,7 +50,7 @@ require("lazy").setup {
     notify = false,
   },
   change_detection = {
-    notify = false,
+    notify = true,
   },
   performance = {
     rtp = {
@@ -90,7 +89,7 @@ require("lazy").setup {
 -- pcall(require, "user")
 
 -- Helpful comments
---[[ 
+--[[
 To check the current status of your plugins, run:
   :Lazy
 
