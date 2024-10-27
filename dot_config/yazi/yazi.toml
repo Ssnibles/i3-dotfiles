@@ -2,4 +2,4 @@
 show_hidden = true
 
 [opener]
-edit = [{ run = 'fish -c "neovide \"$1\""', block = true }]
+edit = [{ run = 'fish -c "nvim \"$1\""', block = true }]

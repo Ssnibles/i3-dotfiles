@@ -5,6 +5,7 @@ STATE_FILE="$HOME/.config/hypr/gaps_state"
 
 # Function to apply gaps
 apply_gaps() {
+    # Change the bellow gaps_out and gaps_in to your liking
     hyprctl --batch "keyword general:gaps_out 15;keyword general:gaps_in 10;keyword decoration:rounding 8"
     echo "1" > "$STATE_FILE"
 }

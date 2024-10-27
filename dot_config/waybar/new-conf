@@ -3,15 +3,13 @@
     "position": "top",
     "height": 30,
     "spacing": 4,
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap", "custom/media"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "pulseaudio", "battery", "clock"],
+    "modules-right": ["tray", "network", "cpu", "memory", "pulseaudio", "battery", "clock"],
 
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "show-special": true,
-        "special-visible-only": true,
         "format": "{icon}",
         "format-icons": {
             "1": "1",
@@ -19,23 +17,57 @@
             "3": "3",
             "4": "4",
             "5": "5",
-            "special": "👾"
+            "special": "󰎕"
+        },
+        "persistent_workspaces": {
+            "*": 5,
+            "special": true
         }
+    },
+
+    "hyprland/submap": {
+        "format": "{}",
+        "max-length": 8
     },
 
     "hyprland/window": {
         "max-length": 50
     },
 
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "󰎆"
+        },
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
     "network": {
         "format-wifi": "󰖩 {essid}",
         "format-ethernet": "󰈀 {ipaddr}",
-        "format-disconnected": "󰖪 Disconnected"
+        "format-disconnected": "󰖪",
+        "max-length": 50
+    },
+
+    "cpu": {
+        "format": "󰻠 {usage}%"
+    },
+
+    "memory": {
+        "format": "󰍛 {}%"
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "󰝟 Muted",
+        "format-muted": "󰝟",
         "format-icons": {
             "default": ["󰕿", "󰖀", "󰕾"]
         },
@@ -43,8 +75,13 @@
     },
 
     "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
         "format": "{icon} {capacity}%",
         "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󱘖 {capacity}%",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
@@ -53,4 +90,3 @@
         "format-alt": "{:%Y-%m-%d}"
     }
 }
-

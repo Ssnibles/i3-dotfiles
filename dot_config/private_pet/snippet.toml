@@ -1,0 +1,14 @@
+
+[[Snippets]]
+  Description = "Scan dir for something which looks like api keys"
+  Filename = "/home/josh/.config/pet/snippet.toml"
+  Output = ""
+  Tag = []
+  command = "grep -r -E '(api_key|secret|token|[A-Za-z0-9]{20,})' <path>"
+
+[[Snippets]]
+  Description = "Add / re-add all files in a directory"
+  Filename = "/home/josh/.config/pet/snippet.toml"
+  Output = ""
+  Tag = []
+  command = "chezmoi add -r <path>/*"
