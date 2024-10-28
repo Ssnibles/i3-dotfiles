@@ -10,7 +10,6 @@ source ~/.config/fish/aliases/help_aliases.fish
 source ~/.config/fish/aliases/scripts_aliases.fish
 source ~/.config/fish/variables.fish
 source ~/.config/fish/env.fish
-source ~/.config/fish/misc/nnn_plugins.fish
 
 # Add custom theme
 fish_config theme choose "Rosé Pine Moon"

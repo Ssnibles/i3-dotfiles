@@ -38,3 +38,10 @@ function backup --argument filename
     cp $filename $filename.bak
 end
 
+function clean
+    if test (count $argv) -gt 0 && test "$argv[1]" = "sudo"
+        command sudo ~/Documents/scripts/clean.sh $argv[2..-1]
+    else
+        ~/Documents/scripts/clean.sh $argv
+    end
+end
