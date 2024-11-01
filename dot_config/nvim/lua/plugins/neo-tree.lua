@@ -16,6 +16,7 @@ return {
       hijack_netrw_behavior = "open_default",
     },
     window = {
+      position = "right",
       mappings = {
         ["<space>"] = "none",
       },

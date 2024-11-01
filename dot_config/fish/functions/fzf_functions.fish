@@ -43,9 +43,9 @@ end
 
 # Kill process
 function fkill
-    set pid (ps -ef | string replace -r '^\s*\S+\s+(\S+).*' '$1' | tail -n +2 | fzf -m --header='[kill:process]' --preview 'echo {}' --preview-window down:3:wrap)
+    set pid (ps -ef | sed 1d | fzf -m --header='[kill:process]' --preview 'echo {}' --preview-window down:3:wrap | awk '{print $2}')
     if test -n "$pid"
-        kill -9 $pid
+        echo $pid | xargs kill -9
         echo "Process $pid killed"
     end
 end
@@ -141,35 +141,6 @@ function fuzzy
                 eval $function_name
             case '*'
                 echo "Operation cancelled."
-        end
-    end
-end
-
-# kill function with persistent header (Still a WIP put on hold)
-function kill
-    # Define the header
-    set header "PID   USER     %CPU %MEM   VSZ  RSS TTY      STAT START   TIME COMMAND"
-
-    # Clear the screen and print the header
-    clear
-    echo $header
-
-    # Print a line under the header
-    printf '%*s\n' (tput cols) '' | tr ' ' '-'
-
-    # Run the actual kill command with its arguments
-    command kill $argv
-
-    # Keep the header visible
-    while true
-        read -n 1 -P "Press any key to exit, or r to refresh: " input
-        if test "$input" = "r"
-            clear
-            echo $header
-            printf '%*s\n' (tput cols) '' | tr ' ' '-'
-            ps aux
-        else
-            break
         end
     end
 end

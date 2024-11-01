@@ -37,6 +37,9 @@ return {
           end
         end,
         padding = { left = 1, right = 1 },
+        pick = {
+          pivots = "abcdefghijklmnopqrstuvwxyz",
+        },
       },
       menu = {
         preview = true,
