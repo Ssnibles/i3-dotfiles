@@ -15,7 +15,7 @@ configuration {
   icon-theme: "Papirus";
   window-format: "{w}{t}";
   matching: "fuzzy";
-  font: "JetBrainsMono Nerd Font 12";
+  font: "Iosevka Term Extended 12";
 }
 
 * {

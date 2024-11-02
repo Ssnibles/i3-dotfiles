@@ -75,6 +75,7 @@ option.termguicolors = true
 -- option.colorcolumn = "80"
 option.list = true
 option.listchars = { tab = "» ", trail = "·" }
+option.fillchars:append { eob = " " }
 
 -- Search
 option.ignorecase = true

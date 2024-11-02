@@ -4,6 +4,7 @@
 
 ## 📝 To-Do:
 
+- [ ] 👾 Make Config More universal
 - [ ] 🌈 Extend theme support for Doom Emacs
 - [ ] 🖥️ Add theme for greeter (SDDM & greetd)
 - [x] 💻 Add theme for Bash and Zsh
