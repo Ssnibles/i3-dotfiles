@@ -5,6 +5,7 @@
 ## 📝 To-Do:
 
 - [ ] 👾 Make Config More universal
+- [ ] 📜 Create Install script for dependencies and other things
 - [ ] 🌈 Extend theme support for Doom Emacs
 - [ ] 🖥️ Add theme for greeter (SDDM & greetd)
 - [x] 💻 Add theme for Bash and Zsh
@@ -82,7 +83,5 @@ chezmoi update -v
 📌 Additional notes:
 
 - The -v flag in the commands above enables verbose output, which can be helpful for seeing what changes are being made.
-- You can use chezmoi edit <file> to make changes to your dotfiles through Chezmoi.
-- If you make changes directly to your dotfiles, use chezmoi re-add to update Chezmoi's source state.
-
-Happy dotfile managing! 🎉
+- You can use `chezmoi edit` <file> to make changes to your dotfiles through Chezmoi.
+- If you make changes directly to your dotfiles, use `chezmoi re-add` to update Chezmoi's source state.
