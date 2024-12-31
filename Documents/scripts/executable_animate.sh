@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while [[ true ]]; do
+while true; do
   clear
   ~/Documents/scripts/animate/frame1
   sleep 0.5
@@ -9,4 +9,3 @@ while [[ true ]]; do
   sleep 0.5
   clear
 done
-

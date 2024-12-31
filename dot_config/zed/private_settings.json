@@ -1,0 +1,18 @@
+{
+  "vim_mode": true,
+  "theme": "Rosé Pine Moon",
+  "relative_line_numbers": true,
+  "tab_size": 2,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 14,
+  "show_whitespaces": "all",
+  "soft_wrap": "editor_width",
+  "scrollbar": {
+    "show": "never"
+  },
+  "cursor_blink": true,
+  "use_file_icons": true,
+  "project_panel": {
+    "dock": "right"
+  }
+}

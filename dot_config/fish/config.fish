@@ -24,3 +24,7 @@ thefuck --alias | source
 starship init fish | source
 
 fish_add_path /home/josh/.millennium/ext/bin
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
