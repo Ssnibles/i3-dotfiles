@@ -30,7 +30,7 @@ else
 fi
 
 print_color "Installing critical components..." "YELLOW"
-paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd swww bluez bluez-utils blueman curl inotify-tools
+paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd swww bluez bluez-utils blueman curl starship
 
 print_color "Finished installing critical components.
 " "GREEN"
@@ -55,7 +55,6 @@ declare -A programs=(
   ["neofetch"]="A command-line system information tool"
   ["htop"]="An interactive process viewer"
   ["vesktop"]="A discord client with deep customisation through plugins, and offering better performance on linux"
-  ["starship"]="The minimal, blazing-fast, and infinitely customizable prompt for any shell!"
   # Add more programs here
 )
 

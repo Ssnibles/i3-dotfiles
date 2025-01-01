@@ -1,18 +1,53 @@
 {
+  // Editor Behavior
   "vim_mode": true,
-  "theme": "Rosé Pine Moon",
   "relative_line_numbers": true,
   "tab_size": 2,
+  "soft_wrap": "editor_width",
+  "show_whitespaces": "boundary",
+  "cursor_blink": true,
+  "ensure_final_newline_on_save": true,
+  "auto_update": true,
+  "restore_on_startup": "none",
+
+  // Appearance
+  "theme": "Rosé Pine Moon",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_size": 14,
-  "show_whitespaces": "all",
-  "soft_wrap": "editor_width",
+  "use_file_icons": true,
+
+  // UI Elements
   "scrollbar": {
     "show": "never"
   },
-  "cursor_blink": true,
-  "use_file_icons": true,
   "project_panel": {
     "dock": "right"
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true
+  },
+
+  // Langugage and coding assistance
+  "enable_language_server": true,
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+
+  // Specific languages
+  "languages": {
+    "Python": {
+      "tab_size": 4,
+      "formatter": "language_server",
+      "format_on_save": "on"
+    }
   }
 }

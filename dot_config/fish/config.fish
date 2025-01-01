@@ -14,16 +14,13 @@ source ~/.config/fish/env.fish
 # Add custom theme
 fish_config theme choose "Rosé Pine Moon"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # PATHs
-fish_add_path /home/josh/.spicetify
+fish_add_path $HOME/.spicetify
 fish_add_path $HOME/.emacs.d/bin/
 
-thefuck --alias | source
 starship init fish | source
 
-fish_add_path /home/josh/.millennium/ext/bin
+fish_add_path $HOME/.millennium/ext/bin
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
