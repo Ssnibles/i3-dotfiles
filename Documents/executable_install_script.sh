@@ -169,9 +169,11 @@ ramp-foreground = ${colors.primary}
 
 scroll-up = sudo brightnessctl set +5%
 scroll-down = sudo brightnessctl set 5%-"
-   }
+
+    echo "Setup complete. Please reboot your system or log out and log back in for changes to take effect."
+}
 
 # Run the main function
 setup_brightness_control
 
-print_color "Installation process completed, please log out and back in or reboot for changes to take effect." "GREEN"
+print_color "Installation process completed." "GREEN"
