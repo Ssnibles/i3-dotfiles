@@ -5,8 +5,9 @@
 ## 📝 To-Do:
 
 - [ ] 👾 Make Config More universal
-- [ ] 🪟 Add support for the i3 WM (ontop of hyprland)
-- [x] 📜 Create Install script for dependencies and other things
+- [ ] 📜 Create Install script for dependencies and other things
+- [ ] 🌈 Extend theme support for Doom Emacs
+- [ ] 🖥️ Add theme for greeter (SDDM & greetd)
 - [x] 💻 Add theme for Bash and Zsh
 
 # 🚀 How to Setup
@@ -23,7 +24,7 @@ Chezmoi is the dotfiles manager used in this project.
 apk add chezmoi
 ```
 
-#### Arch:
+### Arch:
 
 ```bash
 sudo pacman -S chezmoi

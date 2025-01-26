@@ -5,9 +5,6 @@
 add_newline = true
 continuation_prompt = "[▸▹ ](dimmed white)"
 
-# Add the below two above $sudo\ to add a seperator line and line break
-# $fill
-# $line_break
 format = """
 $os\
 $username\
