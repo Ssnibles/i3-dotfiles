@@ -30,7 +30,7 @@ else
 fi
 
 print_color "Installing critical components..." "YELLOW"
-paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd swww bluez bluez-utils blueman curl starship
+paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl
 
 print_color "Finished installing critical components.
 " "GREEN"
@@ -45,10 +45,6 @@ print_color "Starting and enabling bluetooth service...
 " "YELLOW"
 sudo systemctl start bluetooth.service
 sudo systemctl enable bluetooth.service
-
-print_color "Enabling swww wallpaper daemon...
-" "YELLOW"
-swww-daemon
 
 declare -A programs=(
   ["zed"]="A high-performance, multiplayer code editor from the creators of Atom and Tree-sitter"
@@ -101,4 +97,84 @@ case $response in
   ;;
 esac
 
+# Setup brightnessctl
+# Function to check if the script is run as root
+check_root() {
+    if [ "$EUID" -ne 0 ]; then
+        echo "Please run this script as root or with sudo."
+        exit 1
+    fi
+}
+
+# Function to get the current user (even when run with sudo)
+get_current_user() {
+    if [ "$SUDO_USER" ]; then
+        echo "$SUDO_USER"
+    else
+        echo "$USER"
+    fi
+}
+
+# Main function
+setup_brightness_control() {
+    check_root
+
+    # Get the current user
+    CURRENT_USER=$(get_current_user)
+
+    # Find the backlight device
+    BACKLIGHT_DEVICE=$(ls /sys/class/backlight/ | head -n 1)
+    if [ -z "$BACKLIGHT_DEVICE" ]; then
+        echo "No backlight device found."
+        exit 1
+    fi
+
+    echo "Found backlight device: $BACKLIGHT_DEVICE"
+
+    # Create udev rule
+    cat > /etc/udev/rules.d/90-backlight.rules << EOF
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/$BACKLIGHT_DEVICE/brightness"
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chmod g+w /sys/class/backlight/$BACKLIGHT_DEVICE/brightness"
+EOF
+
+    echo "Created udev rule in /etc/udev/rules.d/90-backlight.rules"
+
+    # Add user to video group
+    usermod -aG video "$CURRENT_USER"
+    echo "Added user $CURRENT_USER to video group"
+
+    # Reload udev rules
+    udevadm control --reload-rules && udevadm trigger
+    echo "Reloaded udev rules"
+
+    # Print Polybar configuration
+    echo "Add the following to your Polybar configuration:"
+echo "[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = amdgpu_bl0
+
+use-actual-brightness = true
+enable-scroll = true
+
+format = <ramp> <label>
+label = %percentage%%
+
+ramp-0 = 󰃞
+ramp-1 = 󰃟
+ramp-2 = 󰃠
+ramp-foreground = ${colors.primary}
+
+scroll-up = sudo brightnessctl set +5%
+scroll-down = sudo brightnessctl set 5%-"
+
+    echo "Setup complete. Please reboot your system or log out and log back in for changes to take effect."
+}
+
+# Run the main function
+setup_brightness_control
+
 print_color "Installation process completed." "GREEN"
+
