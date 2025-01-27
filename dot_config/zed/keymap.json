@@ -2,19 +2,30 @@
   {
     "context": "Workspace",
     "bindings": {
-      "shift shift": "file_finder::Toggle",
-      "ctrl-h": "workspace::ActivatePaneInDirection(Left)",
-      "ctrl-j": "workspace::ActivatePaneInDirection(Down)",
-      "ctrl-k": "workspace::ActivatePaneInDirection(Up)",
-      "ctrl-l": "workspace::ActivatePaneInDirection(Right)"
+      "shift shift": "tab_switcher::Toggle",
+      "ctrl-w": "tab_switcher::CloseSelectedItem",
+      "ctrl-shift-p": null,
+      "shift-:": "command_palette::Toggle",
+      "ctrl-k": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": false
+        }
+      ]
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      "alt-space": "editor::ShowCompletions"
+      "ctrl-space": "editor::ShowCompletions",
+      "space e": "workspace::ToggleRightDock",
+      "gd": "editor::GoToDefinition",
+      "alt-right": "vim::Indent",
+      "alt-left": "vim::Outdent"
     }
   },
+
+  // Vim Stuff
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
@@ -24,7 +35,6 @@
       "space d": "diagnostics::Deploy",
       "space f f": "file_finder::Toggle",
       "space o": "tab_switcher::Toggle",
-      "space e": "workspace::ToggleLeftDock",
       "space /": "workspace::NewSearch",
       "n": "search::SelectNextMatch",
       "shift-n": "search::SelectPrevMatch",
@@ -32,6 +42,13 @@
       "g b": "editor::ToggleComments",
       "+ +": "workspace::Save",
       "space c": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore"
     }
   },
   {
