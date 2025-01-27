@@ -1,5 +1,3 @@
-# ~/.config/starship.toml
-
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = true
@@ -116,38 +114,26 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
-# [fill]
-# symbol = "-"
-# style = "bold overlay0"
-
 [sudo]
 format = "[$symbol]($style)"
 style = "bold italic bright-purple"
-symbol = "🦸"
+symbol = ""
 disabled = false
 
 [os]
 format = "[$symbol]($style)"
 style = "bold blue"
-disabled = false
+disabled = true
 
 [os.symbols]
-Linux = "🐧"
-Windows = "🪟"
-Macos = "🍎"
-Ubuntu = "⭕"
-Arch = "🍫"
-CentOS = "💵"
-Debian = "🌀"
-Fedora = "👒"
-Alpine = "🏔️"
-SUSE = "🦎"
-Redhat = "🎩"
+Linux = ""
+Windows = ""
+Macos = "󰀶"
 
 [username]
 style_user = "bold italic blue"
 style_root = "bold italic red"
-format = "[$user]($style) "
+format = " [$user]($style) "
 show_always = true
 
 [hostname]
@@ -305,5 +291,5 @@ disabled = false
 
 [character]
 format = "$symbol"
-success_symbol = "[╰─󰥭 ](bold green)"
-error_symbol = "[╰─󰥭 ](bold red)"
+success_symbol = '[ ](#90be6d)'
+error_symbol = '[ ](#f07167)'

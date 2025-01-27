@@ -14,7 +14,7 @@ local option = vim.opt
 if global.neovide then
   -- Font settings
   global.neovide_font_size = 14
-  global.neovide_font = "Iosevka Term Extended"
+  global.neovide_font = "JetBrainsMono Nerd Font"
 
   -- Appearance
   global.neovide_transparency = 1.0

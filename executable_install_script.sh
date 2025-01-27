@@ -30,7 +30,7 @@ else
 fi
 
 print_color "Installing critical components..." "YELLOW"
-paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl
+paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl xclip luarocks neovim npm fish
 
 print_color "Finished installing critical components.
 " "GREEN"
