@@ -1,5 +1,12 @@
 {
   // Editor Behavior
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  },
   "vim_mode": true,
   "relative_line_numbers": true,
   "tab_size": 2,
