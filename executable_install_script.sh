@@ -30,7 +30,7 @@ else
 fi
 
 print_color "Installing critical components..." "YELLOW"
-paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl xclip luarocks neovim npm fish
+paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl xclip luarocks neovim npm fish xrender
 
 print_color "Finished installing critical components.
 " "GREEN"
@@ -48,7 +48,6 @@ sudo systemctl enable bluetooth.service
 
 declare -A programs=(
   ["zed"]="A high-performance, multiplayer code editor from the creators of Atom and Tree-sitter"
-  ["neofetch"]="A command-line system information tool"
   ["htop"]="An interactive process viewer"
   ["vesktop"]="A discord client with deep customisation through plugins, and offering better performance on linux"
   # Add more programs here
