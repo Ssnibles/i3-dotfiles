@@ -122,61 +122,54 @@ return {
             desc = "Find File",
             desc_hl = "String",
             key = "f",
-            keymap = "SPC f f",
+            keymap = "SPC ff",
             key_hl = "Number",
             action = function()
               require("telescope.builtin").find_files { hidden = true }
             end,
           },
           {
-            icon = "󰊄 ",
-            desc = "Recent Files",
-            key = "r",
-            keymap = "SPC f r",
-            action = "Telescope oldfiles",
-          },
-          {
             icon = "󰈭 ",
-            desc = "Find Word",
-            key = "w",
-            keymap = "SPC f w",
+            desc = "Live Grep",
+            key = "g",
+            keymap = "SPC fg",
             action = function()
               require("telescope.builtin").live_grep { additional_args = { "--hidden" } }
             end,
           },
           {
             icon = "󰓾 ",
-            desc = "Bookmarks",
+            desc = "Open Buffers",
             key = "b",
-            keymap = "SPC f b",
+            keymap = "SPC fb",
             action = "Telescope marks",
           },
           {
             icon = " ",
             desc = "New File",
             key = "n",
-            keymap = "SPC c n",
+            keymap = "SPC cn",
             action = "enew",
           },
           {
             icon = "󰒲 ",
             desc = "Lazy",
             key = "l",
-            keymap = "SPC p l",
-            action = "Lazy",
+            keymap = "SPC pl",
+            action = "Open Lazy",
           },
           {
             icon = " ",
             desc = "Quit",
             key = "q",
-            keymap = "SPC q",
+            keymap = "q",
             action = "qa",
           },
         },
         footer = function()
-          local stats = require("lazy").stats()
-          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          return { "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms" }
+          local lazy_stats = require("lazy").stats()
+          local ms = string.format("%.2f", lazy_stats.startuptime)
+          return { string.format("⚡ Loaded %d plugins in %sms", lazy_stats.count, ms) }
         end,
       },
     }

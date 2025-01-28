@@ -30,9 +30,9 @@ return {
             return { sources.terminal }
           else
             return {
-              sources.path,
-              sources.treesitter,
-              sources.lsp,
+              sources.path, -- Current path
+              -- sources.treesitter, -- Syntax path
+              -- sources.lsp, -- LSP path
             }
           end
         end,

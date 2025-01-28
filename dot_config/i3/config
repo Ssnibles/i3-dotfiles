@@ -5,7 +5,7 @@ set $browser zen-browser-bin
 floating_modifier $mod
 
 # Declare font
-font pango:Hack 9
+font pango:JetBrainsMono Nerd Font 9
 
 gaps inner 20
 
@@ -132,15 +132,15 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-exec_always --no-startup-id polybar &
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #000000 #000000 #ffffff #000000   #000000
-client.focused_inactive #000000 #000000 #ffffff #000000   #000000
-client.unfocused        #000000 #000000 #888888 #000000   #000000
-client.urgent           #000000 #000000 #ffffff #000000   #000000
-client.placeholder      #000000 #000000 #ffffff #000000   #000000
-client.background       #ffffff
+client.focused          #eb6f92 #000000 #ffffff #000000   #000000
+# client.focused_inactive #000000 #000000 #ffffff #000000   #000000
+# client.unfocused        #000000 #000000 #888888 #000000   #000000
+# client.urgent           #000000 #000000 #ffffff #000000   #000000
+# client.placeholder      #000000 #000000 #ffffff #000000   #000000
+# client.background       #ffffff
 
 ########################################################################
 ########################################################################
@@ -162,7 +162,7 @@ exec --no-startup-id "i3-msg 'workspace 1; exec alacritty'"
 
 for_window [title="Calculator"] floating enable
 for_window [title="Timer"] floating enable
-for_window [class="^.*"] border pixel 0
+# for_window [class="^.*"] border pixel 1
 for_window [class="librewolf"] border none
 for_window [class="firefox"] border none
 for_window [class="mpv"] floating enable
@@ -226,3 +226,4 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec_always mkfifo /tmp/xobpipe && tail -f /tmp/xobpipe | xob -t 2170 & disown
 #exec ~/.i3/launch.sh
+
