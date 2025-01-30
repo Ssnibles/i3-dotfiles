@@ -30,7 +30,7 @@ else
 fi
 
 print_color "Installing critical components..." "YELLOW"
-paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl xclip luarocks neovim npm fish xrender
+paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl xclip luarocks neovim npm fish xrender bat fzf zoxide zsh yazi
 
 print_color "Finished installing critical components.
 " "GREEN"
@@ -174,6 +174,9 @@ scroll-down = sudo brightnessctl set 5%-"
 
 # Run the main function
 setup_brightness_control
+
+print_color "Installing oh-my-zsh" "YELLOW"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 print_color "Installation process completed." "GREEN"
 
