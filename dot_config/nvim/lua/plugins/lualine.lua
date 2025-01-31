@@ -2,6 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   event = "VeryLazy",
+  enabled = false,
   opts = function()
     local conditions = {
       buffer_not_empty = function()

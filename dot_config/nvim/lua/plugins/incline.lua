@@ -2,6 +2,7 @@ return {
   {
     "b0o/incline.nvim",
     event = "VeryLazy",
+    enabled = false,
     config = function()
       local devicons = require "nvim-web-devicons"
       require("incline").setup {
