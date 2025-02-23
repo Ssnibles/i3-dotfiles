@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run with sudo privileges. Please use 'sudo ./install_script.sh'"
+    exit 1
+fi
+
 # Colors for output
 declare -A colors=(
   [RED]='\033[0;31m'
@@ -30,7 +35,7 @@ else
 fi
 
 print_color "Installing critical components..." "YELLOW"
-paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl xclip luarocks neovim npm fish xrender bat fzf zoxide zsh yazi
+paru -S --needed --noconfirm ttf-font-awesome noto-fonts noto-fonts-emoji ttf-jetbrains-mono-nerd bluez bluez-utils blueman curl starship picom polybar fastfetch brightnessctl xclip luarocks neovim npm fish xrender bat fzf zoxide zsh yazi tlp
 
 print_color "Finished installing critical components.
 " "GREEN"
@@ -95,6 +100,10 @@ case $response in
   print_color "Invalid response. Skipping spicetify installation." "RED"
   ;;
 esac
+
+systemctl enable tlp.service
+sudo systemctl start tlp.service
+sudo tlp start
 
 # Setup brightnessctl
 # Function to check if the script is run as root

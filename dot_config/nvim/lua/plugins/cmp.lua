@@ -1,11 +1,12 @@
 return {
   "hrsh7th/nvim-cmp",
+  enabled = false,
   event = "VeryLazy",
   dependencies = {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
-    "hrsh7th/cmp-cmdline",
+    -- "hrsh7th/cmp-cmdline",
   },
   config = function()
     local cmp = require("cmp")
