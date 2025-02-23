@@ -22,7 +22,7 @@ return {
       "neovim/nvim-lspconfig"
     },
     opts = {
-      ensure_installed = { "lua_ls", "tsserver" }
+      ensure_installed = { "lua_ls", "ts_ls", "ast_grep" }
     },
     config = function(_, opts)
       require("mason-lspconfig").setup(opts)

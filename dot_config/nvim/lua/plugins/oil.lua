@@ -1,6 +1,6 @@
 return {
   "stevearc/oil.nvim",
-  event = "LspAttach",
+  -- event = "LspAttach",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     default_file_explorer = true,

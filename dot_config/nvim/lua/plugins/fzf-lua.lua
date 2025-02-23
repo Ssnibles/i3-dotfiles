@@ -17,7 +17,6 @@ return {
             end
           },
           prompt = "Select Directory> ",
-          previewer = "fzf.previewers.vim_buffer_dir",
         })
       end,
       desc = "Find and open directory"
