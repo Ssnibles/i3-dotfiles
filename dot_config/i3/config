@@ -17,6 +17,7 @@ set $ws10 "10"
 font pango:JetBrainsMono Nerd Font 9
 # floating_modifier $mod
 gaps inner 20
+# smart_gaps on
 
 # Window Appearance
 # class                 border  backgr. text    indicator child_border

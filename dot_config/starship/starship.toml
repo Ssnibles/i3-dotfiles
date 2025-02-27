@@ -149,7 +149,7 @@ style = "bold italic cyan"
 format = "in [$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = "🌿 "
+symbol = " "
 format = "on [$symbol$branch(:$remote_branch)]($style) "
 style = "bold italic purple"
 truncation_symbol = "..."
@@ -161,55 +161,55 @@ style = "bold italic green"
 
 # Languages and Dev Tools
 [deno]
-format = "🦕 [deno](italic) [∫ $version](green bold) │"
+format = " [deno](italic) [∫ $version](green bold) │"
 version_format = "${raw}"
 
 [lua]
-format = "🌙 [lua](italic) [${symbol}${version}]($style) │"
+format = "󰢱 [lua](italic) [${symbol}${version}]($style) │"
 version_format = "${raw}"
 symbol = " "
 style = "bold bright-yellow"
 
 [nodejs]
-format = "🟢 [node](italic) [◫ ($version)](bold bright-green) │"
+format = "󰎙 [node](italic) [◫ ($version)](bold bright-green) │"
 version_format = "${raw}"
 detect_files = ["package-lock.json", "yarn.lock"]
 detect_folders = ["node_modules"]
 detect_extensions = []
 
 [python]
-format = "🐍 [py](italic) [${symbol}${version}]($style) │"
+format = " [py](italic) [${symbol}${version}]($style) │"
 symbol = "[⌉](bold bright-blue)⌊ "
 version_format = "${raw}"
 style = "bold bright-yellow"
 
 [ruby]
-format = "💎 [rb](italic) [${symbol}${version}]($style) │"
+format = "󰴭 [rb](italic) [${symbol}${version}]($style) │"
 symbol = " "
 version_format = "${raw}"
 style = "bold red"
 
 [rust]
-format = "🦀 [rs](italic) [$symbol$version]($style) │"
+format = "󱘗 [rs](italic) [$symbol$version]($style) │"
 symbol = " "
 version_format = "${raw}"
 style = "bold red"
 
 [package]
-format = "📦 [pkg](italic dimmed) [$symbol$version]($style) │"
+format = " [pkg](italic dimmed) [$symbol$version]($style) │"
 version_format = "${raw}"
 symbol = " "
 style = "dimmed yellow italic bold"
 
 [swift]
-format = "🍎 [sw](italic) [${symbol}${version}]($style) │"
+format = "󰛥 [sw](italic) [${symbol}${version}]($style) │"
 symbol = " "
 style = "bold bright-red"
 version_format = "${raw}"
 
 [aws]
 disabled = true
-format = "☁️ [aws](italic) [$symbol $profile $region]($style) │"
+format = "󰸏 [aws](italic) [$symbol $profile $region]($style) │"
 style = "bold blue"
 symbol = " "
 
@@ -218,51 +218,51 @@ symbol = "🐃 "
 format = "[buf](italic) [$symbol $version $buf_version]($style) │"
 
 [c]
-symbol = "🅒 "
+symbol = "󰙱 "
 format = "[$symbol($version(-$name))]($style) │"
 
 [conda]
-symbol = "🐍 "
+symbol = " "
 format = "conda [$symbol$environment]($style) │"
 
 [dart]
-symbol = "🎯 "
+symbol = " "
 format = "dart [$symbol($version )]($style) │"
 
 [docker_context]
-symbol = "🐳 "
+symbol = "󰡨 "
 format = "docker [$symbol$context]($style) │"
 
 [elixir]
-symbol = "💧 "
+symbol = " "
 format = "exs [$symbol $version OTP $otp_version ]($style) │"
 
 [elm]
-symbol = "🌳 "
+symbol = " "
 format = "elm [$symbol($version )]($style) │"
 
 [golang]
-symbol = "🐹 "
+symbol = "󰟓 "
 format = "go [$symbol($version )]($style) │"
 
 [haskell]
-symbol = "λ "
+symbol = " "
 format = "hs [$symbol($version )]($style) │"
 
 [java]
-symbol = "☕ "
+symbol = " "
 format = "java [${symbol}(${version} )]($style) │"
 
 [julia]
-symbol = "ஃ "
+symbol = " "
 format = "jl [$symbol($version )]($style) │"
 
 [memory_usage]
-symbol = "🧠 "
+symbol = "󰍛 "
 format = "mem [${ram}( ${swap})]($style) │"
 
 [nim]
-symbol = "👑 "
+symbol = "󰆥 "
 format = "nim [$symbol($version )]($style) │"
 
 [nix_shell]
@@ -274,17 +274,17 @@ pure_msg = '[⌾](bold dimmed green)'
 unknown_msg = '[◌](bold dimmed yellow)'
 
 [spack]
-symbol = "🎒 "
+symbol = " "
 format = "spack [$symbol$environment]($style) │"
 
 [time]
 disabled = false
 time_format = "%R"
 style = "bold white"
-format = "⏲️ [$time]($style)"
+format = "[$time]($style)"
 
 [cmd_duration]
-format = "⏱️ took [$duration ](bold yellow)"
+format = "took [$duration ](bold yellow)"
 
 [line_break]
 disabled = false
@@ -293,3 +293,4 @@ disabled = false
 format = "$symbol"
 success_symbol = '[ ](#90be6d)'
 error_symbol = '[ ](#f07167)'
+

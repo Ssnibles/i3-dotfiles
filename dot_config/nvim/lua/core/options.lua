@@ -96,7 +96,7 @@ set_options({
 
 -- Performance
 set_options({
-  lazyredraw = true,
+  -- lazyredraw = true,
   updatetime = 300, -- Slightly increased
   timeoutlen = 400, -- Slightly increased
 })
