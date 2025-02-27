@@ -1,12 +1,16 @@
 return {
   "smjonas/inc-rename.nvim",
+  config = function()
+    require("inc_rename").setup()
+  end,
   keys = {
-    { "<leader>rn", ":IncRename ", desc = "Rename LSP Identifier" },
-  },
-  otps = {
-    cmd_name = "IncRename",
-    hl_group = "Substitute",
-    show_message = true,
-    save_in_cmdline_history = true,
+    {
+      "<leader>rn",
+      function()
+        return ":IncRename " .. vim.fn.expand("<cword>")
+      end,
+      expr = true,
+      desc = "Rename symbol under cursor"
+    },
   },
 }
