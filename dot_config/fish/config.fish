@@ -3,12 +3,12 @@ source ~/.config/fish/conf.d/done.fish
 source ~/.config/fish/functions/fzf_functions.fish
 source ~/.config/fish/functions/fetch_functions.fish
 source ~/.config/fish/functions/misc_functions.fish
+source ~/.config/fish/functions/zoxide.fish
 source ~/.config/fish/keybinds.fish
 source ~/.config/fish/aliases/eza_aliases.fish
 source ~/.config/fish/aliases/common_aliases.fish
 source ~/.config/fish/aliases/help_aliases.fish
 source ~/.config/fish/aliases/scripts_aliases.fish
-source ~/.confih/fish/aliases/zoxide.fish
 source ~/.config/fish/variables.fish
 source ~/.config/fish/env.fish
 
