@@ -8,6 +8,7 @@ source ~/.config/fish/aliases/eza_aliases.fish
 source ~/.config/fish/aliases/common_aliases.fish
 source ~/.config/fish/aliases/help_aliases.fish
 source ~/.config/fish/aliases/scripts_aliases.fish
+source ~/.confih/fish/aliases/zoxide.fish
 source ~/.config/fish/variables.fish
 source ~/.config/fish/env.fish
 
@@ -19,6 +20,8 @@ fish_add_path $HOME/.spicetify
 fish_add_path $HOME/.emacs.d/bin/
 
 starship init fish | source
+
+zoxide init fish | source
 
 fish_add_path $HOME/.millennium/ext/bin
 

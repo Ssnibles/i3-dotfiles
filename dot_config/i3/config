@@ -1,6 +1,6 @@
 # Variables
 set $mod Mod4
-set $term alacritty
+set $term ghostty
 set $browser zen-browser-bin
 set $ws1 "1"
 set $ws2 "2"
@@ -26,8 +26,8 @@ client.focused          #eb6f92  #eb6f92  #ffffff #eb6f92     #eb6f92
 # Keybindings
 ## Launch Applications
 bindsym $mod+Return exec $term
+bindsym $mod+Shift+b exec $browser
 bindsym $mod+space exec "rofi -show combi -modi window,run,combi -combi-modi window,run"
-bindsym $mod+Shift+p exec gnome-calculator
 
 ## Window Management
 bindsym $mod+q kill

@@ -24,13 +24,32 @@ return {
       },
     },
     cmdline = {
-      enabled = false,
+      enabled = true,
+      completion = {
+        menu = {
+          auto_show = true,
+        },
+      },
+      keymap = {
+        preset = "super-tab",
+      },
+    },
+    fuzzy = {
+      implementation = "prefer_rust_with_warning",
     },
     signature = {
       window = { border = "single" }, -- none, single, double, rounded, solid
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "cmdline" },
+      default = { "lsp", "path", "snippets", "buffer" },
+
+      -- per_filetype = { sql = { 'dadbod' } }
+      -- providers = {
+      --   dadbod = {
+      --     name = "Dadbod",
+      --     module = "vim_dadbod_completion.blink",
+      --   },
+      -- }
     },
   },
 }
