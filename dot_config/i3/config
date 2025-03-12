@@ -16,12 +16,12 @@ set $ws10 "10"
 # General Settings
 font pango:JetBrainsMono Nerd Font 9
 # floating_modifier $mod
-gaps inner 20
+gaps inner 10
 # smart_gaps on
 
 # Window Appearance
 # class                 border  backgr. text    indicator child_border
-client.focused          #eb6f92  #eb6f92  #ffffff #eb6f92     #eb6f92
+# client.focused          #eb6f92  #eb6f92  #ffffff #eb6f92     #eb6f92
 
 # Keybindings
 ## Launch Applications
@@ -100,7 +100,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window rules
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 for_window [title="Calculator"] floating enable
 for_window [title="Timer"] floating enable
 for_window [class="mpv"] floating enable
@@ -112,7 +112,7 @@ for_window [class="firefox"] border none
 # for_window [class="Alacritty"]
 
 # Autostart Applications
-exec --no-startup-id "i3-msg 'workspace 1; exec alacritty'"
+exec --no-startup-id "i3-msg 'workspace 1; exec $term'"
 exec --no-startup-id dunst
 exec --no-startup-id tlp start
 exec --no-startup-id picom
@@ -121,8 +121,8 @@ exec --no-startup-id xclip
 exec --no-startup-id xrandr --output HDMI-A-0 --auto --above eDP
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec feh --bg-fill ~/.config/i3/wallpaper.png
-exec xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --scale 1x1
+exec --no-startup-id feh --bg-fill ~/.config/i3/clouds.JPG
+exec xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --scale 1x1 # output to external display conncted on hdmi 1
 
 # Status Bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &

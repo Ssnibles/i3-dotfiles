@@ -5,5 +5,15 @@ return {
   name = "rose-pine",
   config = function()
     vim.cmd("colorscheme rose-pine-moon")
-  end
+  end,
 }
+--
+-- return {
+--   "Shatur/neovim-ayu",
+--   priority = 1000,
+--   event = "UiEnter",
+--   name = "ayu",
+--   config = function()
+--     vim.cmd("colorscheme ayu")
+--   end,
+-- }

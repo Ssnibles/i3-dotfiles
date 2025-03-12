@@ -1,0 +1,19 @@
+[General]
+  Backend = "gist"
+  Editor = "nvim"
+  Color = false
+  Column = 40
+  Format = "[$description]: $command $tags"
+  SelectCmd = "fzf --ansi --layout=reverse --border --height=90%"
+  SnippetFile = "~/.config/pet/snippet.toml"
+
+[Gist]
+  Public = false
+  access_token = ""
+  auto_sync = false
+  file_name = "pet-snippet.toml"
+
+[GitLab]
+  Visibility = "private"
+  auto_sync = false
+  file_name = "pet-snippet.toml"
